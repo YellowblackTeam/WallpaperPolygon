@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polygon Donut Wallpaper</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #2f5d3a;
+      position: relative;
+    }
+
+    .logo-container {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: space-around;
+      gap: 80px;
+      padding: 80px;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 20px;
+      object-fit: cover;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .logo:nth-child(even) {
+      animation-duration: 8s;
+    }
+
+    .logo:nth-child(3n) {
+      animation-duration: 10s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    .channel-link {
+      position: absolute;
+      right: 40px;
+      bottom: 30px;
+      font-size: 56px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: 0.3s;
+      z-index: 10;
+    }
+
+    .channel-link:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-container">
+    <img class="logo" src="https://yt3.googleusercontent.com/DmHvvJBynK3q0tbyST6WKxQhfWKpl-jy4YWVgMstseYZ27GKxZBEDvFBdNEEqFGxODQY3OoOug=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
+    <img class="logo" src="https://yt3.googleusercontent.com/DmHvvJBynK3q0tbyST6WKxQhfWKpl-jy4YWVgMstseYZ27GKxZBEDvFBdNEEqFGxODQY3OoOug=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
+    <img class="logo" src="https://yt3.googleusercontent.com/DmHvvJBynK3q0tbyST6WKxQhfWKpl-jy4YWVgMstseYZ27GKxZBEDvFBdNEEqFGxODQY3OoOug=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
+    <img class="logo" src="https://yt3.googleusercontent.com/DmHvvJBynK3q0tbyST6WKxQhfWKpl-jy4YWVgMstseYZ27GKxZBEDvFBdNEEqFGxODQY3OoOug=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
+    <img class="logo" src="https://yt3.googleusercontent.com/DmHvvJBynK3q0tbyST6WKxQhfWKpl-jy4YWVgMstseYZ27GKxZBEDvFBdNEEqFGxODQY3OoOug=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
+    <img class="logo" src="https://yt3.googleusercontent.com/DmHvvJBynK3q0tbyST6WKxQhfWKpl-jy4YWVgMstseYZ27GKxZBEDvFBdNEEqFGxODQY3OoOug=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
+    <img class="logo" src="https://yt3.googleusercontent.com/DmHvvJBynK3q0tbyST6WKxQhfWKpl-jy4YWVgMstseYZ27GKxZBEDvFBdNEEqFGxODQY3OoOug=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
+    <img class="logo" src="https://yt3.googleusercontent.com/DmHvvJBynK3q0tbyST6WKxQhfWKpl-jy4YWVgMstseYZ27GKxZBEDvFBdNEEqFGxODQY3OoOug=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
+  </div>
+
+  <a
+    class="channel-link"
+    href="https://www.youtube.com/@PolygonDonut"
+    target="_blank"
+  >
+    Polygon Donut
+  </a>
+
+</body>
+</html>

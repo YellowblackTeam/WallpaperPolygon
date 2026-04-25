@@ -33,6 +33,16 @@
       pointer-events: none;
     }
 
+    .moving-logo {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 20px;
+      object-fit: cover;
+      opacity: 0.22;
+      animation: none;
+    }
+
     .logo {
       width: 120px;
       height: 120px;
@@ -79,7 +89,7 @@
 </head>
 <body>
 
-  <div class="logo-container">
+  <div class="logo-container" id="logoContainer">
     <img class="logo" src="https://yt3.googleusercontent.com/DmHvvJBynK3q0tbyST6WKxQhfWKpl-jy4YWVgMstseYZ27GKxZBEDvFBdNEEqFGxODQY3OoOug=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
     <img class="logo" src="https://yt3.googleusercontent.com/DmHvvJBynK3q0tbyST6WKxQhfWKpl-jy4YWVgMstseYZ27GKxZBEDvFBdNEEqFGxODQY3OoOug=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
     <img class="logo" src="https://yt3.googleusercontent.com/DmHvvJBynK3q0tbyST6WKxQhfWKpl-jy4YWVgMstseYZ27GKxZBEDvFBdNEEqFGxODQY3OoOug=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
@@ -100,5 +110,61 @@
     Polygon Donut
   </a>
 
+  <script>
+    const container = document.getElementById('logoContainer');
+    const images = [
+      'https://yt3.googleusercontent.com/DmHvvJBynK3q0tbyST6WKxQhfWKpl-jy4YWVgMstseYZ27GKxZBEDvFBdNEEqFGxODQY3OoOug=s900-c-k-c0x00ffffff-no-rj',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm_aiW30pwksZazpRRNJvmg4eHATmNUsXFSg&s',
+      'https://characterai.io/i/200/static/avatars/uploaded/2023/7/31/-oBDbKx8ZExLsRlZeYBUhQLPkqlvcLrZV23PyA3Qlk8.webp?webp=true&anim=0'
+    ];
+
+    const logos = [];
+
+    images.forEach(src => {
+      for (let i = 0; i < 3; i++) {
+        const img = document.createElement('img');
+        img.src = src;
+        img.className = 'moving-logo';
+        container.appendChild(img);
+
+        logos.push({
+          el: img,
+          x: Math.random() * (window.innerWidth - 140),
+          y: Math.random() * (window.innerHeight - 140),
+          dx: (Math.random() * 2 + 1) * (Math.random() > 0.5 ? 1 : -1),
+          dy: (Math.random() * 2 + 1) * (Math.random() > 0.5 ? 1 : -1),
+          size: 120
+        });
+      }
+    });
+
+    function animate() {
+      logos.forEach((logo, index) => {
+        logo.x += logo.dx;
+        logo.y += logo.dy;
+
+        if (logo.x <= 0 || logo.x + logo.size >= window.innerWidth) logo.dx *= -1;
+        if (logo.y <= 0 || logo.y + logo.size >= window.innerHeight) logo.dy *= -1;
+
+        for (let j = index + 1; j < logos.length; j++) {
+          const other = logos[j];
+          const hit = Math.abs(logo.x - other.x) < logo.size && Math.abs(logo.y - other.y) < logo.size;
+          if (hit) {
+            logo.dx *= -1;
+            logo.dy *= -1;
+            other.dx *= -1;
+            other.dy *= -1;
+          }
+        }
+
+        logo.el.style.left = logo.x + 'px';
+        logo.el.style.top = logo.y + 'px';
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
 </body>
 </html>
